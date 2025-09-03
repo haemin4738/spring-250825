@@ -1,7 +1,6 @@
-
 <html layout:decorate="~{/common/layout/layout}">
 <form layout:fragment="content" method="POST"
-      th:action="@{/posts/modify}"
+      th:action="@{|/posts/modify/${id}|}"
       th:object="${modifyForm}">
 
     <div th:replace="~{/common/fragment/errors :: errosFragment}"></div>
