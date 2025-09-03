@@ -7,5 +7,15 @@
     <div>
         <a href="/posts/list">글 목록</a>
     </div>
+    <form sec:authorize="isAuthenticated()"
+          th:if="${#authentication.name == post.author.username}"
+          th:action="@{|/posts/delete/${post.id}|}"
+          method="post">
+        <button type="submit">삭제</button>
+    </form>
+    <a th:href="@{|/posts/modify/${post.id}|}"
+       sec:authorize="isAuthenticated()"
+       th:if="${#authentication.name == post.author.username}"
+    >수정</a>
 </div>
 </html>
